@@ -1,0 +1,29 @@
+---
+title: '[CSCI 4502] HW-3'
+author: "Michael Ghattas"
+date: "9/19/2022"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Question-3
+
+### Part(a)
+
+-> 
+
+### Part(b)
+
+->
+
+### Part(c)
+
+->
+
+
+# End.

@@ -1,0 +1,31 @@
+---
+title: '[CSCI 4502] HW-3'
+author: "Michael Ghattas"
+date: "9/19/2022"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Question-1
+
+### Part(a)
+
+-> $lift(Bike, Ski) = \frac{\frac{600}{4000}}{\frac{2500}{4000} \cdot \frac{1300}{4000}} = 0.7384615$ \
+-> Since lift(Bike, Ski) < 1, we can conclude Bike and Ski are negatively dependent. \
+
+### Part(b)
+
+-> Min. Support = 15% = 0.15 \
+-> Min. Confidence = 40% = 0.4 \
+-> Support = $\frac{600}{4000} = 0.15$ \
+-> Support (0.15) = Min. Support (0.15) \
+-> Confidence = $\frac{600}{1300} = 0.4615384$ \
+-> Confidence (0.4615384) > Min. Confidence (0.4) \
+-> Since the Support and Confidence both meet the threshold, we can conclude the association rule is strong. \
+
+# End.
