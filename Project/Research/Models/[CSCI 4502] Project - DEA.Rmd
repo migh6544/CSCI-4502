@@ -1,0 +1,111 @@
+---
+title: '[CSCI 4502] Project - DEA'
+author: "Michael Ghattas"
+date: "10/17/2022"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Exploring data format
+
+rawData = read.csv("~/Documents/Michael_Ghattas/School/CU_Boulder/BA-BS/2022/Fall/CSCI_4502/Project/Research/Data/WA_Fn-UseC_-HR-Employee-Attrition.csv")
+
+data = data.frame(cbind(Age = rawData$Age, Attrition = rawData$Attrition, DistanceFromHome = rawData$DistanceFromHome, Education = rawData$Education, Gender = rawData$Gender, 
+                        HourlyRate = rawData$HourlyRate, JobLevel = rawData$JobLevel, JobSatisfaction = rawData$JobSatisfaction, 
+                        NumCompaniesWorked = rawData$NumCompaniesWorked, OverTime = rawData$OverTime, PercentSalaryHike = rawData$PercentSalaryHike, 
+                        PerformanceRating = rawData$PerformanceRating, TotalWorkingYears = rawData$TotalWorkingYears, YearsAtCompany = rawData$YearsAtCompany, 
+                        YearsInCurrentRole = rawData$YearsInCurrentRole, YearsSinceLastPromotion = rawData$YearsSinceLastPromotion))
+dim(data)
+head(data)
+```
+
+``` {r}
+# Exploring data spread
+
+plot(data$Age, main = "Age", xlab = "Count", ylab = "Age")
+plot(factor(data$Attrition), main = "Attrition", ylab = "Count")
+plot(data$DistanceFromHome, main = "Distance From Home", xlab = "Count", ylab = "Miles")
+plot(data$Education, main = "Education", xlab = "Count", ylab = "Level")
+plot(factor(data$Gender), main = "Gender", ylab = "Count")
+plot(data$HourlyRate, main = "Hourly Rate", xlab = "Count", ylab = "USD $")
+plot(data$JobLevel, main = "Job Level", xlab = "Count", ylab = "level")
+plot(data$JobSatisfaction, main = "Job Satis faction", xlab = "Count", ylab = "Score")
+plot(data$NumCompaniesWorked, main = "No. of Companies Worked", xlab = "Count", ylab = "No. Companies")
+plot(factor(data$OverTime), main = "Over Time", ylab = "Count")
+plot(data$PercentSalaryHike, main = "Percent Salary Hike", xlab = "Count", ylab = "Percent %")
+plot(factor(data$PerformanceRating), main = "Performance Rating", xlab = "Rating", ylab = "Count")
+plot(data$TotalWorkingYears, main = "Total Working Years", xlab = "Count", ylab = "Years")
+plot(data$YearsAtCompany, main = "Years At Company", xlab = "Count", ylab = "Years")
+plot(data$YearsInCurrentRole, main = "Years In Current Role", xlab = "Count", ylab = "Years")
+plot(data$YearsSinceLastPromotion, main = "Years Since Last Promotion", xlab = "Count", ylab = "Years")
+```
+
+```{r}
+# Exploring data outliers
+library(dlookr)
+
+diagnose_outlier(data.frame(as.numeric(factor(data$Age))))
+diagnose_outlier(data.frame(as.numeric(factor(data$Attrition))))
+diagnose_outlier(data.frame(as.numeric(factor(data$DistanceFromHome))))
+diagnose_outlier(data.frame(as.numeric(factor(data$Education))))
+diagnose_outlier(data.frame(as.numeric(factor(data$Gender))))
+diagnose_outlier(data.frame(as.numeric(factor(data$HourlyRate))))
+diagnose_outlier(data.frame(as.numeric(factor(data$JobLevel))))
+diagnose_outlier(data.frame(as.numeric(factor(data$JobSatisfaction))))
+diagnose_outlier(data.frame(as.numeric(factor(data$NumCompaniesWorked))))
+diagnose_outlier(data.frame(as.numeric(factor(data$OverTime))))
+diagnose_outlier(data.frame(as.numeric(factor(data$PercentSalaryHike))))
+diagnose_outlier(data.frame(as.numeric(factor(data$PerformanceRating))))
+diagnose_outlier(data.frame(as.numeric(factor(data$TotalWorkingYears))))
+diagnose_outlier(data.frame(as.numeric(factor(data$YearsAtCompany))))
+diagnose_outlier(data.frame(as.numeric(factor(data$YearsInCurrentRole))))
+diagnose_outlier(data.frame(as.numeric(factor(data$YearsSinceLastPromotion))))
+```
+```{r}
+# Exploring data outliers effect
+
+plot_outlier(data.frame(as.numeric(factor(data$Age))))
+plot_outlier(data.frame(as.numeric(factor(data$Age))))
+plot_outlier(data.frame(as.numeric(factor(data$Attrition))))
+plot_outlier(data.frame(as.numeric(factor(data$DistanceFromHome))))
+plot_outlier(data.frame(as.numeric(factor(data$Education))))
+plot_outlier(data.frame(as.numeric(factor(data$Gender))))
+plot_outlier(data.frame(as.numeric(factor(data$HourlyRate))))
+plot_outlier(data.frame(as.numeric(factor(data$JobLevel))))
+plot_outlier(data.frame(as.numeric(factor(data$JobSatisfaction))))
+plot_outlier(data.frame(as.numeric(factor(data$NumCompaniesWorked))))
+plot_outlier(data.frame(as.numeric(factor(data$OverTime))))
+plot_outlier(data.frame(as.numeric(factor(data$PercentSalaryHike))))
+plot_outlier(data.frame(as.numeric(factor(data$PerformanceRating))))
+plot_outlier(data.frame(as.numeric(factor(data$TotalWorkingYears))))
+plot_outlier(data.frame(as.numeric(factor(data$YearsAtCompany))))
+plot_outlier(data.frame(as.numeric(factor(data$YearsInCurrentRole))))
+plot_outlier(data.frame(as.numeric(factor(data$YearsSinceLastPromotion))))
+```
+```{r}
+# Full EDA Reports
+
+library(DataExplorer)
+
+#create_report(read.csv("~/Documents/Michael_Ghattas/School/CU_Boulder/BA-BS/2022/Fall/CSCI_4502/Project/Research/Data/WA_Fn-UseC_-HR-Employee-Attrition.csv", fileEncoding = "Latin1", check.names = F))
+
+#create_report(read.csv("~/Documents/Michael_Ghattas/School/CU_Boulder/BA-BS/2022/Fall/CSCI_4502/Project/Research/Data/turnover.csv", fileEncoding = "Latin1", check.names = F))
+
+#create_report(read.csv("~/Documents/Michael_Ghattas/School/CU_Boulder/BA-BS/2022/Fall/CSCI_4502/Project/Research/Data/tafe-employee-exit-survey-access-database-december-2013.csv", fileEncoding = "Latin1", check.names = F))
+
+#create_report(read.csv("~/Documents/Michael_Ghattas/School/CU_Boulder/BA-BS/2022/Fall/CSCI_4502/Project/Research/Data/jobclassinfo2.csv", fileEncoding = "Latin1", check.names = F))
+
+#create_report(read.csv("~/Documents/Michael_Ghattas/School/CU_Boulder/BA-BS/2022/Fall/CSCI_4502/Project/Research/Data/hranalytics-master/hr_analytics_training.csv", fileEncoding = "Latin1", check.names = F))
+
+#create_report(read.csv("~/Documents/Michael_Ghattas/School/CU_Boulder/BA-BS/2022/Fall/CSCI_4502/Project/Research/Data/Absenteeism_at_work_AAA/Absenteeism_at_work.csv", fileEncoding = "Latin1", check.names = F))
+```
+
+
+
